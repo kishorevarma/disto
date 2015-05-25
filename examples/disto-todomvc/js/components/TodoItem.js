@@ -55,7 +55,7 @@ export default React.createClass({
     },
 
     _onDestoryClick() {
-        $.destory(this.props.todo.id);
+        $.destroy(this.props.todo.id);
     },
 
     _onSave(text) {

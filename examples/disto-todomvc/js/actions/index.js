@@ -6,7 +6,7 @@ export const $ =  act(dis.dispatch, {
     updateText: '',
     toggleComplete: '',
     toggleComplteAll: '',
-    destory: '',
+    destroy: '',
     destroyCompleted: ''
 });
 

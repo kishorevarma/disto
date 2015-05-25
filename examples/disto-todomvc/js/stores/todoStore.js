@@ -80,7 +80,7 @@ export const todoStore = dis.register(todos, (o, action, ...args) => {
             return { ..._updateAll(o, update)};            
         break;
 
-        case $.destory:
+        case $.destroy:
             let [id] = args;
             delete o[id];
             return { ...o};
