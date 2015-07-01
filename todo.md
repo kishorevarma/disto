@@ -1,0 +1,3 @@
+- mini player + store inspector
+- cli / boilerplate / config generator
+- testing strategy (jest/jsdom/whatever)

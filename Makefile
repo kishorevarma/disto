@@ -1,17 +1,20 @@
-DEV = _rest/app.js _simple/index.js _rebound/index.js
-
-dev:
-	open http://localhost:9966/_rest/
-	beefy $(DEV) -- -t [babelify --stage 1]
-
 build:
-	babel index._.js --stage 1 > index.js
-	babel mix._.js --stage 1 > mix.js
+	rm -rf ./lib
+	babel src -d lib
 
-size:
-	browserify index.js -t babelify | uglifyjs -m -c | gzip | wc -c
-
-tests:
+test:
 	npm test
 
-.PHONY: dev size tests
+size: build
+	browserify ./index.js | uglifyjs -m -c | gzip | wc -c
+
+cover:
+	istanbul cover node_modules/.bin/_mocha
+
+dev:
+	babel-node server.js
+
+hot:
+	HOT=1 make dev
+
+.PHONY: build test size dev cover
